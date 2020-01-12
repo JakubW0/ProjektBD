@@ -1,0 +1,144 @@
+package sample.Table;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.*;
+import sample.ConnectTable;
+import sample.Modele.ModelPrzedmioty;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class TablePrzedmioty {
+
+    private String zapytajS,idprzedS,idtypS,nazwaS,ectsS,godzinyS;
+
+
+    ObservableList<ModelPrzedmioty> oblist = FXCollections.observableArrayList();
+
+
+
+    public void setPrzedmioty() {
+        try {
+            Connection conn = ConnectTable.connectdb();
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM `przedmioty`");
+            while (rs.next()) {
+                oblist.add(new ModelPrzedmioty(rs.getString("Id_przedmiot"),
+                        rs.getString("id_typ_zajec"),
+                        rs.getString("nazwa_przedmiotu"),
+                        rs.getString("ects"),
+                        rs.getString("godziny")));
+
+            }
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+        public void setPrzedmiotyNazwy(){
+            oblist.clear();
+            try {
+                Connection conn = ConnectTable.connectdb();
+                ResultSet rs = conn.createStatement().executeQuery("SELECT przedmioty.Id_przedmiot, typy_zajec.nazwa_typ_zajec, przedmioty.nazwa_przedmiotu, przedmioty.ects,przedmioty.godziny FROM `przedmioty` INNER JOIN `typy_zajec` ON przedmioty.id_typ_zajec=typy_zajec.id_typ_zajec");
+                while (rs.next()){
+                    oblist.add(new ModelPrzedmioty(rs.getString("Id_przedmiot"),
+                            rs.getString("nazwa_typ_zajec"),
+                            rs.getString("nazwa_przedmiotu"),
+                            rs.getString("ects"),
+                            rs.getString("godziny")));
+
+                }
+                conn.close();
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+
+        public void setDodaj( String idprzed, String idtypS, String nazwaS, String ectsS ,String godzinyS ){
+
+            oblist.clear();
+            try {
+                Connection conn = ConnectTable.connectdb();
+                conn.createStatement().executeUpdate("INSERT INTO `przedmioty` (`Id_przedmiot`, `id_typ_zajec`, `nazwa_przedmiotu`, `ects`, `godziny`) VALUES ('"+idprzed+"','"+idtypS+"', '"+nazwaS+"','"+ectsS+"','"+godzinyS+"')");
+                ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM `przedmioty`");
+                while (rs.next()){
+                    oblist.add(new ModelPrzedmioty(rs.getString("Id_przedmiot"),
+                            rs.getString("id_typ_zajec"),
+                            rs.getString("nazwa_przedmiotu"),
+                            rs.getString("ects"),
+                            rs.getString("godziny")));
+
+                }
+                conn.close();
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+                infoBox("zle wypelniona baza danych",null, "Błąd");
+            }
+
+        }
+    public void setAktualizuj( String idprzedS, String idtypS, String nazwaS ,String ectsS, String godzinyS){
+
+        oblist.clear();
+        try {
+            Connection conn = ConnectTable.connectdb();
+            conn.createStatement().executeUpdate("UPDATE `przedmioty` SET `id_typ_zajec`='"+idtypS+"',`nazwa_przedmiotu`= '"+nazwaS+"',`ects`='"+ectsS+"',`godziny`='"+godzinyS+"' WHERE `Id_przedmiot`='"+idprzedS+"'");
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM `przedmioty`");
+            while (rs.next()){
+                oblist.add(new ModelPrzedmioty(rs.getString("Id_przedmiot"),
+                        rs.getString("id_typ_zajec"),
+                        rs.getString("nazwa_przedmiotu"),
+                        rs.getString("ects"),
+                        rs.getString("godziny")));
+
+            }
+            conn.close();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+            infoBox("zle wypelniona baza danych",null, "Błąd");
+        }
+
+    }
+
+        public void setUsun(String idprzedS){
+            try {
+                Connection conn = ConnectTable.connectdb();
+                System.out.println(idprzedS);
+                conn.createStatement().executeUpdate("DELETE FROM `przedmioty` WHERE `przedmioty`.`Id_przedmiot` = "+idprzedS);
+                ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM `przedmioty`");
+                while (rs.next()){
+                    oblist.add(new ModelPrzedmioty(rs.getString("Id_przedmiot"),
+                            rs.getString("id_typ_zajec"),
+                            rs.getString("nazwa_przedmiotu"),
+                            rs.getString("ects"),
+                            rs.getString("godziny")));
+
+                }
+                conn.close();
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+                infoBox("Id tego przedmiotu jest używane w innej tabeli, usuń w niej rekord by usunąć ten przedmiot ",null, "Błąd");
+            }
+        }
+     public ObservableList<ModelPrzedmioty> getOblist(){
+        return  oblist;
+    }
+  /*  public ObservableList<ModelPrzedmioty> getOblistID(){
+        return oblist.get(1);
+    }*/
+    public void setClearOblist(){
+        oblist.clear();
+    }
+    public static void infoBox(String infoMessage, String headerText, String title){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setContentText(infoMessage);
+        alert.setTitle(title);
+        alert.setHeaderText(headerText);
+        alert.showAndWait();}
+}
