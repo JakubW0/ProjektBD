@@ -32,6 +32,7 @@ public class LoginController {
     }
      @FXML
     private void zalogujUser(ActionEvent event) throws IOException {
+
        Logowanie logowanie = new Logowanie();
        logowanie.setLogin(login);
        logowanie.setHaslo(haslo);
