@@ -517,6 +517,7 @@ public class StudentController implements Initializable {
     private void onTab(){
         if(getIndex() == 0){
             setVisible(false,false,false,false,false,false,false,false,false,false,false);
+            idDodaj.setVisible(false);
             jed.setPromptText("Id przedmiot");
             dwa.setPromptText("Id typ zajec");
             trzy.setPromptText("Nazwa przedmiotu");
@@ -560,6 +561,7 @@ public class StudentController implements Initializable {
         }
         if(getIndex() == 4){
             setVisible(false,false,false,false,false,false,false,false,false,false,false);
+            idDodaj.setVisible(false);
             dodaj.setDisable(true);
             usun.setDisable(true);
             aktualizuj.setDisable(true);

@@ -11,6 +11,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import javax.swing.*;
+import javax.swing.plaf.basic.BasicSplitPaneUI;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 
 public class LoginController {
@@ -36,7 +41,8 @@ public class LoginController {
        Logowanie logowanie = new Logowanie();
        logowanie.setLogin(login);
        logowanie.setHaslo(haslo);
-       if(logowanie.loginAction() == true){
+       if(logowanie.loginAction() == true )
+       {
            if(logowanie.getType().equals("1") ) {
 
                Node node = (Node) event.getSource();
@@ -81,6 +87,7 @@ public class LoginController {
        else{
        }
     }
+
     public static void infoBox(String infoMessage, String headerText, String title){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setContentText(infoMessage);

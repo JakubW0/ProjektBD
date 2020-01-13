@@ -439,6 +439,6 @@
         <ComboBox fx:id="combo" layoutX="14.0" layoutY="465.0" onHidden="#onCombo" prefHeight="16.0" prefWidth="83.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="1078.0" />
         <Button fx:id="aktualizuj" layoutX="371.0" layoutY="388.0" mnemonicParsing="false" onAction="#onAktualizuj" prefHeight="33.0" prefWidth="79.0" text="Zaktualizuj" AnchorPane.bottomAnchor="45.0" AnchorPane.rightAnchor="730.0" />
         <CheckBox fx:id="pokaz" layoutX="25.0" layoutY="383.0" mnemonicParsing="false" onAction="#onCheck" prefHeight="53.0" prefWidth="69.0" text="Nazwy" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="1091.0" />
-        <TextField fx:id="idDodaj" layoutX="179.0" layoutY="419.0" prefHeight="25.0" prefWidth="83.0" />
+        <TextField fx:id="idDodaj" layoutX="179.0" layoutY="388.0" prefHeight="25.0" prefWidth="83.0" AnchorPane.bottomAnchor="45.0" AnchorPane.rightAnchor="918.0" />
     </children>
 </AnchorPane>

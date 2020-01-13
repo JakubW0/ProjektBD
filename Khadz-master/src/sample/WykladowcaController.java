@@ -648,8 +648,72 @@ public class WykladowcaController implements Initializable {
     }
     @FXML
     private void onAktualizuj(){
-        System.out.println(combo.getValue());
-        tPLan.setAktualizuj(combo.getValue(), jed.getText(), dwa.getText(), trzy.getText(), czt.getText(),pie.getText(), sze.getText(), sie.getText());
+        if(tab.getTab() == 0) {
+            tPrzedmioty.setAktualizuj(combo.getValue(), jed.getText(), dwa.getText(), trzy.getText(), czt.getText());
+            table.setItems(tPrzedmioty.getOblist());
+            combo.setItems(comboWriterU());
+        }
+        else if(tab.getTab() == 1){
+            tGrupa.setAktualizuj(combo.getValue(), jed.getText());
+
+            tableGrupa.setItems(tGrupa.getOblist());
+            combo.setItems(comboWriterU());
+        }
+        else if(tab.getTab() == 2){
+
+        }
+        else if(tab.getTab() == 3){
+
+        }
+        else if(tab.getTab() == 4){
+            tPLan.setAktualizuj(combo.getValue(), jed.getText(), dwa.getText(), trzy.getText(), czt.getText(),pie.getText(),sze.getText(),sie.getText());
+
+            tablePlan.setItems(tPLan.getOblist());
+            combo.setItems(comboWriterU());
+        }
+
+        else if(tab.getTab() == 5){
+            tKatedra.setAktualizuj(combo.getValue(), jed.getText(), dwa.getText());
+
+            tableKatedra.setItems(tKatedra.getOblist());
+            combo.setItems(comboWriterU());
+        }
+        else if(tab.getTab() == 6){
+            tKierunek.setAktualizuj(combo.getValue(), jed.getText(), dwa.getText());
+
+            tableKierunek.setItems(tKierunek.getOblist());
+            combo.setItems(comboWriterU());
+        }
+        else if(tab.getTab() == 7){
+            tSemestr.setAktualizuj(combo.getValue(), jed.getText());
+
+            tableSemestr.setItems(tSemestr.getOblist());
+            combo.setItems(comboWriterU());
+        }
+        else if(tab.getTab() == 8){
+            tSpecjalnosci.setAktualizuj(combo.getValue(), jed.getText());
+
+            tableSpecjalnsci.setItems(tSpecjalnosci.getOblist());
+            combo.setItems(comboWriterU());
+        }
+        else if(tab.getTab() == 9){
+            tTryb.setAktualizuj(combo.getValue(), jed.getText());
+
+            tableTryb.setItems(tTryb.getOblist());
+            combo.setItems(comboWriterU());
+        }
+        else if(tab.getTab() == 10){
+
+        }
+        else if(tab.getTab() == 11){
+
+        }
+        else if(tab.getTab() == 12){
+            tWydzial.setAktualizuj(combo.getValue(), jed.getText());
+
+            tableWydzial.setItems(tWydzial.getOblist());
+            combo.setItems(comboWriterU());
+        }
 
     }
     @FXML
@@ -675,6 +739,7 @@ public class WykladowcaController implements Initializable {
         }
         if(getIndex() == 1 ){
             setVisible(false,false,false,false,false,false,false,false,false,false,false);
+            idDodaj.setVisible(false);
             dodaj.setDisable(true);
             usun.setDisable(true);
             aktualizuj.setDisable(true);
@@ -684,6 +749,7 @@ public class WykladowcaController implements Initializable {
         }
         if(getIndex() == 2){
             setVisible(false,false,false,false,false,false,false,false,false,false,false);
+            idDodaj.setVisible(false);
             dodaj.setDisable(true);
             usun.setDisable(true);
             aktualizuj.setDisable(true);
@@ -699,6 +765,7 @@ public class WykladowcaController implements Initializable {
         }
         if(getIndex() == 4){
             setVisible(true,true,true,true,true,true,true,false,false,false,false);
+            idDodaj.setVisible(true);
             jed.setPromptText("Id przedmiot");
             dwa.setPromptText("Id prowadzacy");
             trzy.setPromptText("Id specjalnosc");
@@ -716,6 +783,7 @@ public class WykladowcaController implements Initializable {
         }
         if(getIndex() == 5 ){
             setVisible(false,false,false,false,false,false,false,false,false,false,false);
+            idDodaj.setVisible(false);
             dodaj.setDisable(true);
             usun.setDisable(true);
             aktualizuj.setDisable(true);
@@ -724,6 +792,7 @@ public class WykladowcaController implements Initializable {
         }
         if(getIndex() == 6 ){
             setVisible(false,false,false,false,false,false,false,false,false,false,false);
+            idDodaj.setVisible(false);
             dodaj.setDisable(true);
             usun.setDisable(true);
             aktualizuj.setDisable(true);
@@ -732,6 +801,7 @@ public class WykladowcaController implements Initializable {
         }
         if(getIndex() == 7 ){
             setVisible(false,false,false,false,false,false,false,false,false,false,false);
+            idDodaj.setVisible(false);
             dodaj.setDisable(true);
             usun.setDisable(true);
             aktualizuj.setDisable(true);
@@ -740,6 +810,7 @@ public class WykladowcaController implements Initializable {
         }
         if(getIndex() == 8 ){
             setVisible(false,false,false,false,false,false,false,false,false,false,false);
+            idDodaj.setVisible(false);
 
             dodaj.setDisable(true);
             usun.setDisable(true);
@@ -749,6 +820,7 @@ public class WykladowcaController implements Initializable {
         }
         if(getIndex() == 9 ){
             setVisible(false,false,false,false,false,false,false,false,false,false,false);
+            idDodaj.setVisible(false);
             dodaj.setDisable(true);
             usun.setDisable(true);
             aktualizuj.setDisable(true);
@@ -757,6 +829,7 @@ public class WykladowcaController implements Initializable {
         }
         if(getIndex() == 10 ){
             setVisible(false,false,false,false,false,false,false,false,false,false,false);
+            idDodaj.setVisible(false);
             dodaj.setDisable(true);
             usun.setDisable(true);
             aktualizuj.setDisable(true);
@@ -765,6 +838,7 @@ public class WykladowcaController implements Initializable {
         }
         if(getIndex() == 11 ){
             setVisible(false,false,false,false,false,false,false,false,false,false,false);
+            idDodaj.setVisible(false);
             dodaj.setDisable(true);
             usun.setDisable(true);
             aktualizuj.setDisable(true);
@@ -773,6 +847,7 @@ public class WykladowcaController implements Initializable {
         }
         if(getIndex() == 12 ){
             setVisible(false,false,false,false,false,false,false,false,false,false,false);
+            idDodaj.setVisible(false);
             dodaj.setDisable(true);
             usun.setDisable(true);
             aktualizuj.setDisable(true);
@@ -781,6 +856,7 @@ public class WykladowcaController implements Initializable {
         }
         if(getIndex() == 13 ){
             setVisible(false,false,false,false,false,false,false,false,false,false,false);
+            idDodaj.setVisible(false);
             dodaj.setDisable(true);
             usun.setDisable(true);
             aktualizuj.setDisable(true);

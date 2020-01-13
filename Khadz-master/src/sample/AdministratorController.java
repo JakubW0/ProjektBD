@@ -781,6 +781,7 @@ public class AdministratorController implements Initializable {
     private void onTab(){
         if(getIndex() == 0){
            setVisible(true,true,true,true,false,false,false,false,false,false,false);
+            idDodaj.setVisible(true);
            idDodaj.setPromptText("Id do dodania");
            jed.setPromptText("Id typ zajec");
            dwa.setPromptText("Nazwa przedmiotu");
