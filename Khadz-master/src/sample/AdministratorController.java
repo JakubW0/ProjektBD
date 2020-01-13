@@ -303,6 +303,8 @@ public class AdministratorController implements Initializable {
     private Button q5B;
     @FXML
     private TextField grupaQ5;
+    @FXML
+    private ComboBox<String> jedCombo,dwaCombo,trzyCombo,cztCombo,pieCombo,szeCombo,sieCombo,osiCombo,dzieCombo,dziesCombo,jedeCombo;
 
 
     private String zapytajS,idprzedS,idtypS,nazwaS,ectsS,godzinyS;
@@ -338,6 +340,7 @@ public class AdministratorController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        getFalseComob();
         tab.setTab(0);
         tytul.setVisible(false);
         nazwisko.setVisible(false);
@@ -781,6 +784,7 @@ public class AdministratorController implements Initializable {
     private void onTab(){
         if(getIndex() == 0){
            setVisible(true,true,true,true,false,false,false,false,false,false,false);
+           getFalseComob();
             idDodaj.setVisible(true);
            idDodaj.setPromptText("Id do dodania");
            jed.setPromptText("Id typ zajec");
@@ -794,6 +798,7 @@ public class AdministratorController implements Initializable {
         }
         if(getIndex() == 1 ){
             setVisible(true,false,false,false,false,false,false,false,false,false,false);
+            getFalseComob();
             idDodaj.setPromptText("Id do dodania");
             jed.setPromptText("Nazwa grupy");
             tab.setTab(1);
@@ -801,6 +806,7 @@ public class AdministratorController implements Initializable {
         }
         if(getIndex() == 2){
             setVisible(true,true,true,true,true,true,true,false,false,false,false);
+            getFalseComob();
             idDodaj.setPromptText("Id do dodania");
             jed.setPromptText("Id prowadzący");
             dwa.setPromptText("Id tytul");
@@ -815,6 +821,7 @@ public class AdministratorController implements Initializable {
         }
         if(getIndex() == 3){
             setVisible(true,true,true,true,true,true,true,true,true,true,true);
+            getFalseComob();
             idDodaj.setPromptText("Id do dodania");
             jed.setPromptText("Id specjalność");
             dwa.setPromptText("Id tryb");
@@ -832,6 +839,7 @@ public class AdministratorController implements Initializable {
         }
         if(getIndex() == 4){
             setVisible(true,true,true,true,true,true,true,false,false,false,false);
+            setVisibleCombo(true,true,true,true,true,true,true,false,false,false,false);
             idDodaj.setPromptText("Id do dodania");
             jed.setPromptText("Id przedmiot");
             dwa.setPromptText("Id prowadzacy");
@@ -846,6 +854,7 @@ public class AdministratorController implements Initializable {
         }
         if(getIndex() == 5 ){
             setVisible(true,true,false,false,false,false,false,false,false,false,false);
+            getFalseComob();
             idDodaj.setPromptText("Id do dodania");
             jed.setPromptText("Id wydzialu");
             dwa.setPromptText("Nazwa katedry");
@@ -854,6 +863,7 @@ public class AdministratorController implements Initializable {
         }
         if(getIndex() == 6 ){
             setVisible(true,true,false,false,false,false,false,false,false,false,false);
+            getFalseComob();
             idDodaj.setPromptText("Id do dodania");
             jed.setPromptText("Id wydzialu");
             dwa.setPromptText("Nazwa kierunku");
@@ -862,6 +872,7 @@ public class AdministratorController implements Initializable {
         }
         if(getIndex() == 7 ){
             setVisible(true,false,false,false,false,false,false,false,false,false,false);
+            getFalseComob();
             idDodaj.setPromptText("Id do dodania");
             jed.setPromptText("Numer semestru");
             tab.setTab(7);
@@ -869,6 +880,7 @@ public class AdministratorController implements Initializable {
         }
         if(getIndex() == 8 ){
             setVisible(true,false,false,false,false,false,false,false,false,false,false);
+            getFalseComob();
             idDodaj.setPromptText("Id do dodania");
 
             jed.setPromptText("Nazwa specjalności");
@@ -877,6 +889,7 @@ public class AdministratorController implements Initializable {
         }
         if(getIndex() == 9 ){
             setVisible(true,false,false,false,false,false,false,false,false,false,false);
+            getFalseComob();
             idDodaj.setPromptText("Id do dodania");
             jed.setPromptText("Tryb studiów");
             tab.setTab(9);
@@ -885,6 +898,7 @@ public class AdministratorController implements Initializable {
         }
         if(getIndex() == 10 ){
             setVisible(true,false,false,false,false,false,false,false,false,false,false);
+            getFalseComob();
             idDodaj.setPromptText("Id do dodania");
             jed.setPromptText("Nazwa typu zajec");
             tab.setTab(10);
@@ -893,6 +907,7 @@ public class AdministratorController implements Initializable {
         }
         if(getIndex() == 11 ){
             setVisible(true,false,false,false,false,false,false,false,false,false,false);
+            getFalseComob();
             idDodaj.setPromptText("Id do dodania");
             jed.setPromptText("Nazwa tytulu");
             tab.setTab(11);
@@ -901,6 +916,7 @@ public class AdministratorController implements Initializable {
         }
         if(getIndex() == 12 ){
             setVisible(true,false,false,false,false,false,false,false,false,false,false);
+            getFalseComob();
             idDodaj.setPromptText("Id do dodania");
             jed.setPromptText("Nazwa wydziału");
             tab.setTab(12);
@@ -909,6 +925,7 @@ public class AdministratorController implements Initializable {
         }
         if(getIndex() == 13 ){
             setVisible(false,false,false,false,false,false,false,false,false,false,false);
+            getFalseComob();
             idDodaj.setVisible(false);
 
             combo.setVisible(false);
@@ -989,8 +1006,23 @@ public class AdministratorController implements Initializable {
         return oblistNazwaQ4;
     }
 
+    public void setVisibleCombo(Boolean s1,Boolean s2,Boolean s3,Boolean s4,Boolean s5,Boolean s6,Boolean s7,Boolean s8,Boolean s9,Boolean s10,Boolean s11) {
+        jedCombo.setVisible(s1);
+        dwaCombo.setVisible(s2);
+        trzyCombo.setVisible(s3);
+        cztCombo.setVisible(s4);
+        pieCombo.setVisible(s5);
+        szeCombo.setVisible(s6);
+        sieCombo.setVisible(s7);
+        osiCombo.setVisible(s8);
+        dzieCombo.setVisible(s9);
+        dziesCombo.setVisible(s10);
+        jedeCombo.setVisible(s11);
 
-
+    }
+    public void getFalseComob(){
+        setVisibleCombo(false,false,false,false,false,false,false,false,false,false,false);
+    }
   public  ObservableList<String>  comboWriterU(){
       if(tab.getTab() == 0){
           combo.getItems().clear();

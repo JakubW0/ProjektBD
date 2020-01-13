@@ -425,18 +425,29 @@
             </TabPane>
              <Button fx:id="dodaj" layoutX="92.0" layoutY="388.0" mnemonicParsing="false" onAction="#onDodaj" prefHeight="33.0" prefWidth="79.0" text="Dodaj" AnchorPane.bottomAnchor="45.0" AnchorPane.rightAnchor="1009.0" />
              <Button fx:id="usun" layoutX="278.0" layoutY="388.0" mnemonicParsing="false" onAction="#onUsun" prefHeight="33.0" prefWidth="79.0" text="Usuń" AnchorPane.bottomAnchor="45.0" AnchorPane.rightAnchor="823.0" />
-             <TextField fx:id="jed" layoutX="110.0" layoutY="463.0" prefHeight="25.0" prefWidth="52.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="1018.0" />
-             <TextField fx:id="dwa" layoutX="173.0" layoutY="463.0" prefHeight="25.0" prefWidth="91.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="916.0" />
+             <TextField fx:id="jed" layoutX="110.0" layoutY="463.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="1018.0" />
+             <ComboBox fx:id="jedCombo" layoutX="110.0" layoutY="463.0" onHidden="#onCombo" prefHeight="25.0" prefWidth="91.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="1018.0" />
+             <TextField fx:id="dwa" layoutX="173.0" layoutY="463.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="916.0" />
+             <ComboBox fx:id="dwaCombo" layoutX="173.0" layoutY="463.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="916.0" />
              <TextField fx:id="trzy" layoutX="272.0" layoutY="463.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="818.0" />
+             <ComboBox fx:id="trzyCombo" layoutX="272.0" layoutY="463.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="818.0" />
              <TextField fx:id="czt" layoutX="364.0" layoutY="463.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="720.0" />
+             <ComboBox fx:id="cztCombo" layoutX="364.0" layoutY="463.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="720.0" />
              <TextField fx:id="pie" layoutX="470.0" layoutY="463.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="622.0" />
+             <ComboBox fx:id="pieCombo" layoutX="470.0" layoutY="463.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="622.0" />
              <TextField fx:id="sze" layoutX="568.0" layoutY="463.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="524.0" />
+             <ComboBox fx:id="szeCombo" layoutX="568.0" layoutY="463.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="524.0" />
              <TextField fx:id="sie" layoutX="665.0" layoutY="463.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="427.0" />
+             <ComboBox fx:id="sieCombo" layoutX="665.0" layoutY="463.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="427.0" />
              <TextField fx:id="osi" layoutX="765.0" layoutY="463.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="329.0" />
+             <ComboBox fx:id="osiCombo" layoutX="765.0" layoutY="463.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="329.0" />
              <TextField fx:id="dzie" layoutX="865.0" layoutY="463.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="231.0" />
+             <ComboBox fx:id="dzieCombo" layoutX="865.0" layoutY="463.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="231.0" />
              <TextField fx:id="dzies" layoutX="1062.0" layoutY="463.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="35.0" />
+             <ComboBox fx:id="dziesCombo" layoutX="1062.0" layoutY="463.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="35.0" />
              <TextField fx:id="jede" layoutX="967.0" layoutY="463.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="133.0" />
-             <ComboBox fx:id="combo" layoutX="14.0" layoutY="465.0" onHidden="#onCombo" prefHeight="16.0" prefWidth="83.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="1078.0" />
+             <ComboBox fx:id="jedeCombo" layoutX="967.0" layoutY="463.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="133.0" />
+             <ComboBox fx:id="combo" layoutX="14.0" layoutY="463.0" onHidden="#onCombo" prefHeight="25.0" prefWidth="24.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="1116.0" />
              <Button fx:id="aktualizuj" layoutX="371.0" layoutY="388.0" mnemonicParsing="false" onAction="#onAktualizuj" prefHeight="33.0" prefWidth="79.0" text="Zaktualizuj" AnchorPane.bottomAnchor="45.0" AnchorPane.rightAnchor="730.0" />
             <CheckBox fx:id="pokaz" layoutX="25.0" layoutY="383.0" mnemonicParsing="false" onAction="#onCheck" prefHeight="53.0" prefWidth="69.0" text="Nazwy" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="1091.0" />
       <TextField fx:id="idDodaj" layoutX="179.0" layoutY="419.0" prefHeight="25.0" prefWidth="83.0" AnchorPane.bottomAnchor="45.0" AnchorPane.rightAnchor="918.0" />
