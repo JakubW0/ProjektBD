@@ -498,6 +498,7 @@ public class AdministratorController implements Initializable {
         tableTyp.setItems(tTypy.getOblist());
         tableTytul.setItems(tTytul.getOblist());
         tableWydzial.setItems(tWydzial.getOblist());
+        tableGrupa.setEditable(true);
 
     }
   @FXML
@@ -940,6 +941,8 @@ public class AdministratorController implements Initializable {
 
         if(pokaz.isSelected() == true){
              tProwadzacy.setProwadzacyNazwy();
+            jedCombo.getItems().clear();
+            jedCombo.setItems(oblistNazwa);
              tPrzedmioty.setPrzedmiotyNazwy();
              tStudenci.setStudenciNazwa();
              tytul.setVisible(true);
